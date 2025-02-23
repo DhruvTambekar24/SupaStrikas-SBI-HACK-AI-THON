@@ -20,7 +20,7 @@ const features = [
     route: "/dashboard",
   },
   {
-    title: "PoliSmart",
+    title: "PoliRecommender",
     description: "Recommends dynamic, personalized insurance policies.",
     icon: "📜",
     route: "/policy-recommender",
