@@ -48,7 +48,7 @@ The **Personalized AI Customer Engagement System (PACES)** leverages advanced AI
 
 ---
 
-### 5. PolicySmart - AI-Powered Policy Insights
+### 5. PolicyRecommender - AI-Powered Policy Insights
 **Function:**
 - Delivers intelligent insights about policy effectiveness and user engagement.
 - Helps agents and insurers make data-driven decisions about policy offerings.
