@@ -34,14 +34,38 @@ export default function Home() {
   const [allPlans, setAllPlans] = useState<
     { planName: string; brochureLink: string }[]
   >([
-    { planName: "SBI Life - Smart Fortune Builder", brochureLink: "/policies/fortunebuilder.pdf" },
-    { planName: "SBI Life - Retire Smart Plus", brochureLink: "/policies/retirementsmartplus.pdf" },
-    { planName: "SBI Life - Smart Elite Plus", brochureLink: "/policies/smarteliteplus.pdf" },
-    { planName: "SBI Life - Smart Platina Supreme", brochureLink: "/policies/smartplatinasupreme.pdf" },
-    { planName: "SBI Life - Smart Privilege Plus", brochureLink: "/policies/smartprivilegeplus.pdf" },
-    { planName: "SBI Life - Smart Shield", brochureLink: "/policies/smartsheild.pdf" },
-    { planName: "SBI Life - Smart Bachat Plus", brochureLink: "/policies/smartbachatplus.pdf" },
-    { planName: "SBI Life - Smart Platina Assure", brochureLink: "/policies/smartplatinaassure.pdf" },
+    {
+      planName: "SBI Life - Smart Fortune Builder",
+      brochureLink: "/policies/fortunebuilder.pdf",
+    },
+    {
+      planName: "SBI Life - Retire Smart Plus",
+      brochureLink: "/policies/retirementsmartplus.pdf",
+    },
+    {
+      planName: "SBI Life - Smart Elite Plus",
+      brochureLink: "/policies/smarteliteplus.pdf",
+    },
+    {
+      planName: "SBI Life - Smart Platina Supreme",
+      brochureLink: "/policies/smartplatinasupreme.pdf",
+    },
+    {
+      planName: "SBI Life - Smart Privilege Plus",
+      brochureLink: "/policies/smartprivilegeplus.pdf",
+    },
+    {
+      planName: "SBI Life - Smart Shield",
+      brochureLink: "/policies/smartsheild.pdf",
+    },
+    {
+      planName: "SBI Life - Smart Bachat Plus",
+      brochureLink: "/policies/smartbachatplus.pdf",
+    },
+    {
+      planName: "SBI Life - Smart Platina Assure",
+      brochureLink: "/policies/smartplatinaassure.pdf",
+    },
   ]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -111,27 +135,38 @@ export default function Home() {
   };
 
   const openBrochure = (planName: string) => {
+    // Normalize plan names to avoid mismatches
+    const normalizedPlanName = planName.trim().toLowerCase();
+  
     const brochures: { [key: string]: string } = {
-      "Fortune Builder": "/policies/fortunebuilder.pdf",
-      "Retirement Smart Plus": "/policies/retirementsmartplus.pdf",
-      "Smart Elite Plus": "/policies/smarteliteplus.pdf",
-      "Smart Platina Supreme": "/policies/smartplatinasupreme.pdf",
-      "Smart Privilege": "/policies/smartprivilegeplus.pdf",
-      "Smart Shield": "/policies/smartsheild.pdf",
-      "Smart Bachat Plus": "/policies/smartbachatplus.pdf",
-      "Smart Platina Assure": "/policies/smartplatinaassure.pdf",
+      "sbi life - smart fortune builder": "/policies/fortunebuilder.pdf",
+      "sbi life - retire smart plus": "/policies/retirementsmartplus.pdf",
+      "sbi life - smart elite plus": "/policies/smarteliteplus.pdf",
+      "sbi life - smart platina supreme": "/policies/smartplatinasupreme.pdf",
+      "sbi life - smart privilege plus": "/policies/smartprivilegeplus.pdf",
+      "sbi life - smart shield": "/policies/smartshield.pdf",
+      "sbi life - smart bachat plus": "/policies/smartbachatplus.pdf",
+      "sbi life - smart platina assure": "/policies/smartplatinaassure.pdf",
     };
-    const url = brochures[planName];
+  
+    const url = brochures[normalizedPlanName];
+  
     if (url) {
       window.open(url, "_blank");
+    } else {
+      alert(`Brochure not available for the selected plan: ${planName}`);
     }
   };
+  
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <img src="SBI-Logo.jpg" className="w-50 h-10 text-primary mx-auto mb-4" />
+          <img
+            src="SBI-Logo.jpg"
+            className="w-50 h-10 text-primary mx-auto mb-4"
+          />
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Insurance Plan Recommender
           </h1>
@@ -270,15 +305,15 @@ export default function Home() {
                     {predictions["Best Plan 1"]}
                   </p>
                   <Button
-  onClick={() => openBrochure(predictions["Best Plan 1"])}
-  className="mt-4 w-full"
-  style={{
-    background: 'linear-gradient(90deg, rgba(182,29,85,1) 35%, rgba(40,0,113,1) 100%)',
-  }}
->
-  View Brochure
-</Button>
-
+                    onClick={() => openBrochure(predictions["Best Plan 1"])}
+                    className="mt-4 w-full"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, rgba(182,29,85,1) 35%, rgba(40,0,113,1) 100%)",
+                    }}
+                  >
+                    View Brochure
+                  </Button>
                 </Card>
 
                 {/* Display Best Plan 2 */}
@@ -291,8 +326,9 @@ export default function Home() {
                     onClick={() => openBrochure(predictions["Best Plan 2"])}
                     className="mt-4 w-full"
                     style={{
-                        background: 'linear-gradient(90deg, rgba(182,29,85,1) 35%, rgba(40,0,113,1) 100%)',
-                      }}
+                      background:
+                        "linear-gradient(90deg, rgba(182,29,85,1) 35%, rgba(40,0,113,1) 100%)",
+                    }}
                   >
                     View Brochure
                   </Button>
@@ -332,10 +368,11 @@ export default function Home() {
                           </td>
                           <td className="py-3 px-6 text-sm text-gray-700 dark:text-gray-300">
                             <Button
-                              onClick={() => openBrochure(plan.brochureLink)}
+                              onClick={() => openBrochure(plan.planName)}
                               className="mt-4 w-full bg-primary text-white"
                               style={{
-                                background: 'linear-gradient(90deg, rgba(182,29,85,1) 35%, rgba(40,0,113,1) 100%)',
+                                background:
+                                  "linear-gradient(90deg, rgba(182,29,85,1) 35%, rgba(40,0,113,1) 100%)",
                               }}
                             >
                               View Brochure
