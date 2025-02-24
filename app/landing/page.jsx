@@ -3,7 +3,7 @@ import { BackgroundBeams } from '../../components/ui/background-beams';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, Activity, Brain, Shield, Star, Users, Menu, X } from 'lucide-react';
-import hero from '../../components/assets/hero.png'
+import hero from '../../components/assets/hero.jpg'
 import Link from 'next/link';
 import logo from "../../components/assets/logo.png"
 import Loader from "../../components/Loader"
@@ -248,79 +248,101 @@ const LandingPage = () => {
       <div className="min-h-screen ">
         {/* Hero Section - Enhanced with gradient */}
         {/* <WavyBackground className=" mx-auto "> */}
-        <section className="relative min-h-screen flex items-center   overflow-hidden ">
-          <div className="absolute inset-0 bg-gradient-to-br  from-[#4A90E2]/10 to-[#50E3C2]/10" />
-          <div className="container mx-auto px-4 lg:px-8 relative z-[100]">
-            <div className="flex flex-col-reverse lg:flex-row justify-between lg:justify-end pt-16 lg:pt-12 px-12 gap-2 lg:gap-12 items-center min-h-screen">
-              <div className="lg:space-y-6 lg:pb-6 pb-6">
+        <section className="relative min-h-screen flex items-center overflow-hidden">
+  {/* Background Gradient */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#4A90E2]/10 to-[#50E3C2]/10" />
 
-                <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tighter bg-gradient-to-r  to-purple-800 bg-clip-text text-transparent motion-preset-expand motion-duration-500 delay-200 capitalize" >
-                Personalized Ai customer engagement system
-                </h1>
-                <h2 className='text-neutral-800 text-lg flex flex-row justify-start items-center gap-2 motion-preset-slide-right-md motion-duration-500 delay-200'>
-                  Revolutionizing the insurance industry with AI-driven  <WordRotate
-                    className=" font-bold italic underline"
-                    words={["Risk Assessment", "Predictive Analysis", "Fraud Detection"]}
-                  />
-                </h2>
+  {/* Main Container */}
+  <div className="container mx-auto px-6 lg:px-12 relative z-[100]">
+    <div className="flex flex-col-reverse lg:flex-row justify-between items-center min-h-screen gap-8 lg:gap-16">
 
-                <PulsatingButton
-                 onClick={() => router.push('/cards')}
-                 ><h3 className='text-white tracking-tighter text-2xl font-bold motion-preset-pop motion-duration-500 delay-200'>Get Started</h3></PulsatingButton>
-              </div>
-              <div className="relative pt-10 z-[1000] overflow-hidden">
-                <div className="bg lg:h-[80vh] h-[90vh] w-[90vw] lg:w-[40vw] bg-[#722A78] absolute -bottom-32 -right-14 z-0 rounded-full motion-preset-slide-left-lg delay-300 duration-900"></div>
-                <Image
-                  src={hero}
-                  alt="Healthcare Innovation"
-                  className="lg:w-[73vw] lg:h-[50vh] w-[90vw] h-[54vh] z-10 relative motion-preset-slide-left-lg delay-200 duration-1000"
-                />
-              </div>
+      {/* Left Content Section */}
+      <div className="lg:space-y-8 pb-6 lg:pb-10">
+        <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tighter bg-purple-800 bg-clip-text text-transparent motion-preset-expand motion-duration-500 delay-200 capitalize">
+          Personalized AI Customer Engagement System
+        </h1>
 
-            </div>
-          </div>
-          <BackgroundBeams />
-        </section>
+        <h2 className="text-gray-800 text-lg flex items-center gap-2 motion-preset-slide-right-md motion-duration-500 delay-200">
+          Revolutionizing the insurance industry with AI-driven  
+          <WordRotate
+            className="font-bold italic underline"
+            words={["Risk Assessment", "Predictive Analysis", "Fraud Detection"]}
+          />
+        </h2>
+
+        {/* CTA Button */}
+        <PulsatingButton onClick={() => router.push('/cards')}>
+          <h3 className="text-white tracking-tighter text-2xl font-bold motion-preset-pop motion-duration-500 delay-200">
+            Get Started
+          </h3>
+        </PulsatingButton>
+      </div>
+
+      {/* Right Image Section */}
+      <div className="relative w-full lg:w-[40vw] flex items-center justify-center">
+  {/* Background Circle - Slightly Bigger Than Image */}
+  <div className="absolute -bottom-8 -right-6  bg-[#722A78] rounded-full duration-900 z-0"></div>
+
+  {/* Hero Image */}
+  <Image
+  src={hero}
+  alt="Healthcare Innovation"
+  className="relative w-[70vw] lg:w-[35vw] h-auto z-10 object-contain 
+             motion-preset-slide-left-lg delay-200 duration-1000 
+             border border-gray-300 rounded-[50px]"
+/>
+
+</div>
+
+
+    </div>
+  </div>
+
+  {/* Decorative Background Beams */}
+  <BackgroundBeams />
+</section>
+
         {/* </WavyBackground> */}
         {/* Features Section - With subtle gradient */}
         <motion.section
-          id="features"
-          className="py-10 px-24 rounded-t-3xl"
+  id="features"
+  className="py-10 px-4 lg:px-24 rounded-t-3xl"
+  variants={sectionVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+>
+  <div className="container mx-auto px-4 lg:px-8 ">
+    <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tighter text-center text-gray-300 mb-16">
+      Key Features
+    </h2>
+    <div className="flex flex-wrap justify-center lg:justify-evenly gap-8 ">
+      {features.map((feature, index) => (
+        <motion.div
+          key={index}
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="container mx-auto px-4 lg:px-8">
-            <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tighter text-center text-gray-300 mb-16">
-              Key Features
-            </h2>
-            <div className="flex flex-col justify-evenly flex-wrap items-center lg:flex-row gap-8">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  variants={sectionVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                >
-                  <MagicCard
-                    className="cursor-pointer flex-col w-80 h-72 p-4 items-center justify-center whitespace-nowrap backdrop-blur-lg rounded-xl border-2 border-gray-300"
-                    gradientColor={theme === "light" ? "#262626" : "#D9D9D955"}
-                  >
-                    <div className="mb-4 text-2xl">{feature.icon}</div>
-                    <h3 className="text-xl font-bold mb-2 text-gray-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-black font-semibold text-wrap text-md">
-                      {feature.description}
-                    </p>
-                  </MagicCard>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.section>
+          <MagicCard
+            className="cursor-pointer flex flex-col w-80 h-72 p-6 items-center justify-center text-center text-black backdrop-blur-lg rounded-xl border border-gray-300 shadow-lg"
+            gradientColor="#262626"
+          >
+            <div className="mb-4 text-4xl text-[#4A90E2]">{feature.icon}</div>
+            <h3 className="text-xl font-bold mb-2">
+              {feature.title}
+            </h3>
+            <p className=" text-sm leading-relaxed">
+              {feature.description}
+            </p>
+          </MagicCard>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.section>
+
 
         {/* CTA Section - With enhanced gradient */}
         {/* <WavyBackground className=" mx-auto "> */}\

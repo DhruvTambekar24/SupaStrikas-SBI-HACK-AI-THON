@@ -20,7 +20,7 @@ const features = [
     route: "/dashboard",
   },
   {
-    title: "PoliSmart",
+    title: "PoliRecommender",
     description: "Recommends dynamic, personalized insurance policies.",
     icon: "📜",
     route: "/policy-recommender",
@@ -84,7 +84,7 @@ const FeaturesPage = () => {
 
       <div
         className="goback cursor-pointer text-sm mt-4 text-right"
-        onClick={() => router.push("/")}
+        onClick={() => router.push("/landing")}
       >
         Go back
       </div>

@@ -126,6 +126,7 @@ export default function Home() {
         data["Best Plan 2"] = "Retirement Smart Plus"; // Change to some default or alternate policy
       }
       setPredictions(data);
+      console.log("Predictions:", data);
     } catch (err) {
       setError("Error: Could not fetch predictions. Please try again later.");
       console.error("Prediction error:", err);
@@ -147,6 +148,13 @@ export default function Home() {
       "sbi life - smart shield": "/policies/smartshield.pdf",
       "sbi life - smart bachat plus": "/policies/smartbachatplus.pdf",
       "sbi life - smart platina assure": "/policies/smartplatinaassure.pdf",
+      "smart platina supreme": "/policies/smartplatinasupreme.pdf",
+      "smart privilege": "/policies/smartprivilegeplus.pdf",
+      "fortune builder": "/policies/fortunebuilder.pdf",
+      "retirement smart plus": "/policies/retirementsmartplus.pdf",
+      "smart shield": "/policies/smartshield.pdf",
+      "smart platina assure": "/policies/smartplatinaassure.pdf",
+
     };
   
     const url = brochures[normalizedPlanName];
